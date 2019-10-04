@@ -2,23 +2,37 @@ import java.util.Scanner;
 
 public class Hw2 {
     public static void main(String[] args) {
-        int num,num1;
+        int num1, num2, res1, max_first, max_second, ans1 = 0, ans2 = 0;
+
         Scanner sc = new Scanner(System.in);
-
-        System.out.print("첫번쨰 숫자를 입력하세요: ");
-        num = sc.nextInt();
-        System.out.print("두번쨰 숫자를 입력하세요: ");
+        //첫번쨰숫자 입력 받음
+        System.out.print("첫 번째 숫자를 입력하세요: ");
         num1 = sc.nextInt();
-
-        if(num<num1) {
-            int temp = num1;
-            num1 = num;
-            num = temp;
+        //두번째 숫자 입력 받음
+        System.out.print("두 번째 숫자를 입력하세요: ");
+        num2 = sc.nextInt();
+        //큰수를 작은수로 나누기
+        if(num1 > num2) {
+            max_first = num1;
+            max_second = num2;
+        } else {
+            max_first = num2;
+            max_second = num1;
         }
 
-        for(){
-
+        //최대공약수
+        while(max_first % max_second != 0) {
+            res1 = max_first % max_second;
+            max_first = max_second;
+            max_second = res1;
+            //최소 공배수
+            if(max_first % max_second == 0) {
+                ans1 = max_second;
+                ans2 = (num1 * num2) / ans1;
+            }
         }
+        //출력
+        System.out.println("최소공배수: " + ans2);
 
     }
 }
